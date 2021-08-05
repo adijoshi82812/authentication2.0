@@ -17,6 +17,7 @@ export const NavBarItem = styled.ul`
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    transition: all 0.3s ease-in;
   }
 
   & > a:hover {
