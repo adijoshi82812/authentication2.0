@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 
 import { Nav } from "./components/Nav/Nav";
 import { LoginForm } from "./components/LoginForm/LoginForm";
+import { SignUpForm } from "./components/SignUpForm/SignUpForm";
 
 export const App = () => {
   const logged_in = useSelector((state) => state.logged_in);
@@ -23,7 +24,7 @@ export const App = () => {
         </Route>
 
         <Route exact path="/signup/">
-          Sign Up
+          <SignUpForm />
         </Route>
 
         <Route exact path="/dashboard/">
