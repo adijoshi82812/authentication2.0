@@ -1,11 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "../../store";
 
 import { NavBar, NavBarItem } from "./NavStyled";
 
 export const Nav = () => {
   const logged_in = useSelector((state) => state.logged_in);
+  const dispatch = useDispatch();
+
+  const { loginHandler, userHandler } = bindActionCreators(
+    actionCreators,
+    dispatch
+  );
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    loginHandler(false);
+    userHandler("");
+  };
 
   const logged_out_nav = (
     <NavBar>
@@ -22,7 +36,15 @@ export const Nav = () => {
   const logged_in_nav = (
     <NavBar>
       <NavBarItem right>
-        <Link to="/">Logout</Link>
+        <Link
+          onClick={(e) => {
+            e.preventDefault();
+            handleLogout();
+          }}
+          to="/"
+        >
+          Logout
+        </Link>
       </NavBarItem>
     </NavBar>
   );
