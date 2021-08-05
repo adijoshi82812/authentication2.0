@@ -42,6 +42,13 @@ Create virtual environment for backend
   python3 -m venv backend-env
 ```
 
+Activate the virtual environment
+
+```bash
+  source backend-env/bin/activate
+```
+
+
 Install requirements.txt
 
 ```bash
