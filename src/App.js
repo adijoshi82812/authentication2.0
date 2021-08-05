@@ -12,10 +12,10 @@ import { actionCreators } from "./store";
 import { Nav } from "./components/Nav/Nav";
 import { LoginForm } from "./components/LoginForm/LoginForm";
 import { SignUpForm } from "./components/SignUpForm/SignUpForm";
+import { DashBoard } from "./components/DashBoard/DashBoard";
 
 export const App = () => {
   const logged_in = useSelector((state) => state.logged_in);
-  const username = useSelector((state) => state.username);
   const dispatch = useDispatch();
 
   const { loginHandler, userHandler } = bindActionCreators(
@@ -66,7 +66,7 @@ export const App = () => {
         </Route>
 
         <Route exact path="/dashboard/">
-          {username}
+          <DashBoard />
         </Route>
       </Switch>
     </Router>
