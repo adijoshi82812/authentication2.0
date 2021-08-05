@@ -6,6 +6,8 @@ import { actionCreators } from "../../store";
 
 import { NavBar, NavBarItem } from "./NavStyled";
 
+import swal from "sweetalert";
+
 export const Nav = () => {
   const logged_in = useSelector((state) => state.logged_in);
   const dispatch = useDispatch();
@@ -15,7 +17,12 @@ export const Nav = () => {
     dispatch
   );
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await swal({
+      title: "Success",
+      text: "You've been logged out",
+      icon: "success",
+    });
     localStorage.removeItem("token");
     loginHandler(false);
     userHandler("");

@@ -5,6 +5,8 @@ import { actionCreators } from "../../store";
 
 import { Container, InnerBox, InputText, Button } from "./LoginFormStyled";
 
+import swal from "sweetalert";
+
 export const LoginForm = () => {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -40,7 +42,7 @@ export const LoginForm = () => {
           userHandler(json.user.username);
         });
     } catch (err) {
-      alert(err);
+      swal({ title: "Error", text: `${err}`, icon: "error" });
     }
   };
 

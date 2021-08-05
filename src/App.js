@@ -14,6 +14,8 @@ import { LoginForm } from "./components/LoginForm/LoginForm";
 import { SignUpForm } from "./components/SignUpForm/SignUpForm";
 import { DashBoard } from "./components/DashBoard/DashBoard";
 
+import swal from "sweetalert";
+
 export const App = () => {
   const logged_in = useSelector((state) => state.logged_in);
   const dispatch = useDispatch();
@@ -44,7 +46,7 @@ export const App = () => {
               userHandler(json.username);
             });
         } catch (err) {
-          alert(err);
+          swal({ title: "Error", text: `${err}`, icon: "error" });
         }
       };
 

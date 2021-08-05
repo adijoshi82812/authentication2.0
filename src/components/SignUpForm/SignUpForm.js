@@ -5,6 +5,8 @@ import { actionCreators } from "../../store";
 
 import { Container, InnerBox, InputText, Button } from "./SignUpFormStyled";
 
+import swal from "sweetalert";
+
 export const SignUpForm = () => {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -30,7 +32,7 @@ export const SignUpForm = () => {
         body: JSON.stringify(authObject),
       })
         .then((res) => res.json())
-        .then((json) => {
+        .then(async (json) => {
           if (!json.token) {
             throw new Error("Username already exists");
           }
@@ -38,9 +40,14 @@ export const SignUpForm = () => {
           localStorage.setItem("token", json.token);
           loginHandler(true);
           userHandler(json.username);
+          await swal({
+            title: "Success",
+            text: `Logged in as ${json.username}`,
+            icon: "success",
+          });
         });
     } catch (err) {
-      alert(err);
+      swal({ title: "Error", text: `${err}`, icon: "error" });
     }
   };
 
