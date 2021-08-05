@@ -21,7 +21,7 @@ export const Nav = () => {
 
   const logged_in_nav = (
     <NavBar>
-      <NavBarItem>
+      <NavBarItem right>
         <Link to="/">Logout</Link>
       </NavBarItem>
     </NavBar>
