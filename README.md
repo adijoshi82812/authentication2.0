@@ -20,6 +20,12 @@ Additionally this project uses redux and styled-components. The whole stack is d
 
 ## Deployment
 
+Clone the project
+
+```bash
+  git clone https://github.com/adijoshi82812/authentication2.0.git
+```
+
 ### Deploy the frontend app locally
 
 Install dependencies
