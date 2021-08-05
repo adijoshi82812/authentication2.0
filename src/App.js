@@ -7,12 +7,15 @@ import {
 } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+import { Nav } from "./components/Nav/Nav";
+
 export const App = () => {
   const logged_in = useSelector((state) => state.logged_in);
 
   return (
     <Router>
       {logged_in ? <Redirect to="/dashboard/" /> : <Redirect to="/" />}
+      <Nav />
       <Switch>
         <Route exact path="/">
           Login
